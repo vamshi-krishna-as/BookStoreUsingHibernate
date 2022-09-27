@@ -7,40 +7,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-
 @Entity
 @Table(name = "BOOK_DETAILS")
 public class Book 
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "BOOK_ID")
-	private int bookId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int bookID;
+	
 	@Column(name = "BOOK_NAME")
 	private String bookName;
+	
 	@Column(name = "AUTHOR_NAME")
 	private String authorName;
+	
 	@Column(name = "BOOK_GENRE")
-	private String bookGenre;
+	private String bookGernre;
+	
 	@Column(name = "BOOK_PRICE")
 	private double bookPrice;
-	public Book(int bookId, String bookName, String authorName, String bookGenre, double bookPrice) {
-		super();
-		this.bookId = bookId;
-		this.bookName = bookName;
-		this.authorName = authorName;
-		this.bookGenre = bookGenre;
-		this.bookPrice = bookPrice;
+	
+	public int getBookID() {
+		return bookID;
 	}
-	public Book() {
-		super();
-	}
-	public int getBookId() {
-		return bookId;
-	}
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
+	public void setBookID(int bookID) {
+		this.bookID = bookID;
 	}
 	public String getBookName() {
 		return bookName;
@@ -54,17 +46,33 @@ public class Book
 	public void setAuthorName(String authorName) {
 		this.authorName = authorName;
 	}
-	public String getBookGenre() {
-		return bookGenre;
+	public String getBookGernre() {
+		return bookGernre;
 	}
-	public void setBookGenre(String bookGenre) {
-		this.bookGenre = bookGenre;
+	public void setBookGernre(String bookGernre) {
+		this.bookGernre = bookGernre;
 	}
 	public double getBookPrice() {
 		return bookPrice;
 	}
 	public void setBookPrice(double bookPrice) {
 		this.bookPrice = bookPrice;
+	}
+	public Book(int bookID, String bookName, String authorName, String bookGernre, double bookPrice) {
+		super();
+		this.bookID = bookID;
+		this.bookName = bookName;
+		this.authorName = authorName;
+		this.bookGernre = bookGernre;
+		this.bookPrice = bookPrice;
+	}
+	public Book() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Book [bookID=" + bookID + ", bookName=" + bookName + ", authorName=" + authorName + ", bookGernre="
+				+ bookGernre + ", bookPrice=" + bookPrice + "]";
 	}
 	
 	

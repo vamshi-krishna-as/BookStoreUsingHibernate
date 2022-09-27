@@ -1,19 +1,16 @@
 package com.sixdee.book.repository;
 
-import java.util.List;
-import java.util.Optional;
+import java.awt.print.Pageable;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
 import com.sixdee.book.model.Book;
 
-public interface BookRepo extends JpaRepository<Book, Integer>
-{
-
-	List<Book> findByAuthorName(String name);
-
-	List<Book> findByBookGenre(String bGenre);
-
+@Repository
+public interface BookRepo extends PagingAndSortingRepository<Book, Integer> {
 
 
 }
